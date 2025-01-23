@@ -4,6 +4,10 @@
  * Opts: --bpp 1 --size 36 --no-compress --font PixelOperatorMono-Bold.ttf --range 32-127 --format lvgl -o pixel_operator_36.c
  ******************************************************************************/
 
+#include "../../include/fonts/pixel_operator_36.h"
+
+#include <lvgl.h>
+
 #ifndef PIXEL_OPERATOR_36
 #define PIXEL_OPERATOR_36 1
 #endif
