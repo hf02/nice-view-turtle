@@ -14,16 +14,18 @@
 void render_battery() {
     lv_canvas_fill_bg(battery_canvas, BACKGROUND_COLOR, LV_OPA_COVER);
 
-    draw_battery(battery_canvas, 7 , 4, states.battery);
+    draw_battery(battery_canvas, 5, 0, states.battery);
 }
 
 void render_connectivity() {
+    static const unsigned x = CONNECTIVITY_CANVAS_WIDTH - 12;
+
     lv_canvas_fill_bg(connectivity_canvas, BACKGROUND_COLOR, LV_OPA_COVER);
 
     if (states.connectivity.connected) {
-        draw_bluetooth_logo(connectivity_canvas, 18, 4);
+        draw_bluetooth_logo(connectivity_canvas, x, 0);
     } else {
-        draw_bluetooth_logo_outlined(connectivity_canvas, 18, 4);
+        draw_bluetooth_logo_outlined(connectivity_canvas, x, 0);
     }
 
     rotate_connectivity_canvas();
