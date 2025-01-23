@@ -115,8 +115,8 @@ void render_main() {
     // screen width
     // |      font height
     // V      V 
-    // 68px - 28px = 50px
-    static const unsigned text_y_offset = 50;
+    // 68px - 28px = 40px
+    static const unsigned text_y_offset = 40;
 
 
 
