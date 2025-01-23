@@ -106,10 +106,17 @@ void render_main() {
         text[strlen(states.layer.name)] = '\0';
     }
 
-    // Magic number. The height of the font from the baseline to the ascender
-    // height is 34px, but halving the space remaining of the full height gives
-    // us another value ((68px - 34px) / 2 = 17px). 
-    static const unsigned text_y_offset = 15;
+    // // Magic number. The height of the font from the baseline to the ascender
+    // // height is 34px, but halving the space remaining of the full height gives
+    // // us another value ((68px - 34px) / 2 = 17px). 
+    // static const unsigned text_y_offset = 15;
+
+    // screen width
+    // |      font height
+    // V      V 
+    // 68px - 28px = 50px
+    static const unsigned text_y_offset = 50;
+
 
 
     lv_draw_label_dsc_t layer_name_dsc;
