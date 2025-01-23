@@ -10,7 +10,7 @@
 #define LV_ATTRIBUTE_IMG_BACKGROUND_TURTLE
 #endif
 
-const LV_ATTRIBUTE_MEM_ALIGN LV_ATTRIBUTE_LARGE_CONST LV_ATTRIBUTE_IMG_TURTLE-2 uint8_t background_turtle_map[] = {
+const LV_ATTRIBUTE_MEM_ALIGN LV_ATTRIBUTE_LARGE_CONST LV_ATTRIBUTE_IMG_BACKGROUND_TURTLE uint8_t background_turtle_map[] = {
   0xfe, 0xfe, 0xfe, 0xff, 	/*Color of index 0*/
   0x00, 0x00, 0x00, 0xff, 	/*Color of index 1*/
 
