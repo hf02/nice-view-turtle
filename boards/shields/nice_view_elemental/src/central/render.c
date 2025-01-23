@@ -90,6 +90,8 @@ void render_main() {
     // draw_background(main_canvas, states.background_index);
 #endif
 
+    lv_canvas_fill_bg(main_canvas, BACKGROUND_COLOR, LV_OPA_COVER);
+
     // Capitalize the layer name if given or use the layer number otherwise.
     char* text = NULL;
     if (states.layer.name == NULL) {
