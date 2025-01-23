@@ -23,7 +23,7 @@
 void render_battery() {
     lv_canvas_fill_bg(battery_canvas, BACKGROUND_COLOR, LV_OPA_COVER);
 
-    draw_battery(battery_canvas, 8, 0, states.battery);
+    draw_battery(battery_canvas, 11, 0, states.battery);
 }
 
 static void render_bluetooth_logo() {
@@ -61,7 +61,7 @@ static void render_bluetooth_connectivity() {
 }
 
 static void render_usb_connectivity() {
-    draw_usb_logo(connectivity_canvas, 15, 5);
+    draw_usb_logo(connectivity_canvas, 15, 4);
 }
 
 void render_connectivity() {
