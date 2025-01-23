@@ -99,10 +99,10 @@ void render_main() {
     lv_draw_img_dsc_init(&img_dsc);
     switch (states.layer.index) {
         case 0:
-            lv_canvas_draw_img(canvas, 0, 0, &background_main_layer, &img_dsc);
+            lv_canvas_draw_img(main_canvas, 0, 0, &background_main_layer, &img_dsc);
                 break;
         default:
-            lv_canvas_draw_img(canvas, 0, 0, &background_alt_layer, &img_dsc);
+            lv_canvas_draw_img(main_canvas, 0, 0, &background_alt_layer, &img_dsc);
 
     }
 
