@@ -112,7 +112,7 @@ void render_main() {
     lv_draw_label_dsc_init(&layer_name_dsc);
     layer_name_dsc.color = FOREGROUND_COLOR;
     layer_name_dsc.font = &pixel_operator_36;
-    layer_name_dsc.align = LV_TEXT_ALIGN_LEFT;
+    layer_name_dsc.align = LV_TEXT_ALIGN_CENTER;
 
     lv_canvas_draw_text(
         main_canvas,
