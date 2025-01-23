@@ -129,7 +129,7 @@ void render_main() {
 
     lv_canvas_draw_text(
         main_canvas,
-        -1,
+        -3,
         text_y_offset,
         MAIN_CANVAS_WIDTH,
         &layer_name_dsc,
