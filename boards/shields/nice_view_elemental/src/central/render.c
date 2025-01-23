@@ -117,7 +117,7 @@ void render_main() {
     // |      |      some adjustment
     // V      V      V
     // 68px - 39px + 6px = 29px
-    static const unsigned text_y_offset = 34;
+    static const unsigned text_y_offset = 35;
 
 
 
@@ -129,7 +129,7 @@ void render_main() {
 
     lv_canvas_draw_text(
         main_canvas,
-        -3,
+        -2,
         text_y_offset,
         MAIN_CANVAS_WIDTH,
         &layer_name_dsc,
