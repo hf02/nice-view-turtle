@@ -27,14 +27,15 @@ void render_battery() {
 }
 
 static void render_bluetooth_logo() {
+    static const unsigned x = CONNECTIVITY_CANVAS_WIDTH - 12;
     if (states.connectivity.active_profile_bonded) {
         if (states.connectivity.active_profile_connected) {
-            draw_bluetooth_logo(connectivity_canvas, 18, 4);
+            draw_bluetooth_logo(connectivity_canvas, x, 4);
         } else {
-            draw_bluetooth_logo_outlined(connectivity_canvas, 18, 4);
+            draw_bluetooth_logo_outlined(connectivity_canvas, x, 4);
         }
     } else {
-        draw_bluetooth_searching(connectivity_canvas, 18, 4);
+        draw_bluetooth_searching(connectivity_canvas, x, 4);
     }
 }
 
@@ -51,7 +52,7 @@ static void render_bluetooth_profile_index() {
     static const char bluetooth_profile_label[5][2] = {"1", "2", "3", "4", "5"};
     const char* label = bluetooth_profile_label[states.connectivity.active_profile_index];
    
-    lv_canvas_draw_text(connectivity_canvas, 0, padding_y, width, &label_dsc, label);
+    lv_canvas_draw_text(connectivity_canvas, 4, padding_y, width, &label_dsc, label);
 }
 
 static void render_bluetooth_connectivity() {
@@ -60,7 +61,7 @@ static void render_bluetooth_connectivity() {
 }
 
 static void render_usb_connectivity() {
-    draw_usb_logo(connectivity_canvas, 11, 5);
+    draw_usb_logo(connectivity_canvas, 7, 5);
 }
 
 void render_connectivity() {
