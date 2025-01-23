@@ -113,10 +113,10 @@ void render_main() {
     // static const unsigned text_y_offset = 15;
 
     // screen width
-    // |      font height
+    // |      line height
     // V      V 
-    // 68px - 28px = 40px
-    static const unsigned text_y_offset = 40;
+    // 68px - 41px = 40px
+    static const unsigned text_y_offset = 27;
 
 
 
