@@ -60,7 +60,7 @@ static void render_bluetooth_connectivity() {
 }
 
 static void render_usb_connectivity() {
-    draw_usb_logo(connectivity_canvas, 11, 8);
+    draw_usb_logo(connectivity_canvas, 11, 5);
 }
 
 void render_connectivity() {
