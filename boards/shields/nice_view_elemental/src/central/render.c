@@ -8,7 +8,7 @@
 #include "../../include/colors.h"
 #include "../../include/central/initialize_listeners.h"
 #include "../../include/fonts/custom_font_22.h"
-#include "../../include/fonts/custom_font_44.h"
+#include "../../include/fonts/pixel_operator_36.h"
 #include "../../include/fonts/custom_font_shadow.h"
 #include "../../include/fonts/custom_font_outline.h"
 #include "../../include/main.h"
@@ -146,7 +146,7 @@ void render_main() {
     lv_draw_label_dsc_t layer_name_dsc;
     lv_draw_label_dsc_init(&layer_name_dsc);
     layer_name_dsc.color = FOREGROUND_COLOR;
-    layer_name_dsc.font = &custom_font_44;
+    layer_name_dsc.font = &pixel_operator_36;
     layer_name_dsc.align = LV_TEXT_ALIGN_CENTER;
 
     lv_canvas_draw_text(

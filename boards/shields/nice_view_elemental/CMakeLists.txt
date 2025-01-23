@@ -30,7 +30,7 @@ if(CONFIG_ZMK_DISPLAY AND CONFIG_NICE_VIEW_WIDGET_STATUS)
       ./src/central/render.c
       # These are not included on the peripheral since they are only used for
       # displaying the layer name.
-      ./src/fonts/custom_font_44.c
+      ./src/fonts/pixel_operator_36.c
       ./src/fonts/custom_font_shadow.c
       ./src/fonts/custom_font_outline.c
     )
