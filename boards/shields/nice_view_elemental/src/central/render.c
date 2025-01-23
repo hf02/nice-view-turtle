@@ -23,19 +23,19 @@
 void render_battery() {
     lv_canvas_fill_bg(battery_canvas, BACKGROUND_COLOR, LV_OPA_COVER);
 
-    draw_battery(battery_canvas, 0, 0, states.battery);
+    draw_battery(battery_canvas, 14, 0, states.battery);
 }
 
 static void render_bluetooth_logo() {
     static const unsigned x = CONNECTIVITY_CANVAS_WIDTH - 12;
     if (states.connectivity.active_profile_bonded) {
         if (states.connectivity.active_profile_connected) {
-            draw_bluetooth_logo(connectivity_canvas, x, 4);
+            draw_bluetooth_logo(connectivity_canvas, x, 0);
         } else {
-            draw_bluetooth_logo_outlined(connectivity_canvas, x, 4);
+            draw_bluetooth_logo_outlined(connectivity_canvas, x, 0);
         }
     } else {
-        draw_bluetooth_searching(connectivity_canvas, x, 4);
+        draw_bluetooth_searching(connectivity_canvas, x, 0);
     }
 }
 
@@ -61,7 +61,7 @@ static void render_bluetooth_connectivity() {
 }
 
 static void render_usb_connectivity() {
-    draw_usb_logo(connectivity_canvas, 7, 5);
+    draw_usb_logo(connectivity_canvas, 15, 5);
 }
 
 void render_connectivity() {
