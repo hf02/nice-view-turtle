@@ -1,4 +1,4 @@
-#include "../../include/images/background_turtle.h"
+#include "../../include/images/background_temp_layer.h"
 
 #include <lvgl.h>
 

@@ -1,4 +1,4 @@
-#include "../../include/images/background_alt.h"
+#include "../../include/images/background_alt_layer.h"
 
 #include <lvgl.h>
 
