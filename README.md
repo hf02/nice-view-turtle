@@ -10,5 +10,5 @@
 - i dont like animations, so we got the google turtle instead
 
 ## todo
-- change the font of the profile indicator gaa
+- make the top bar look more consistent with everything else
 - put something on the left side on the central board. an image? wpm? i dunno!
