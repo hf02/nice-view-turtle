@@ -19,6 +19,8 @@
 #include "../../include/utils/draw_bluetooth_logo.h"
 #include "../../include/utils/draw_usb_logo.h"
 #include "../../include/utils/rotate_connectivity_canvas.h"
+#include "../../include/images/background_alt_layer.h"
+#include "../../include/images/background_main_layer.h"
 
 void render_battery() {
     lv_canvas_fill_bg(battery_canvas, BACKGROUND_COLOR, LV_OPA_COVER);
@@ -92,6 +94,17 @@ void render_main() {
 #endif
 
     lv_canvas_fill_bg(main_canvas, BACKGROUND_COLOR, LV_OPA_COVER);
+
+    lv_draw_img_dsc_t img_dsc;
+    lv_draw_img_dsc_init(&img_dsc);
+    switch (states.layer.index) {
+        case 0:
+            lv_canvas_draw_img(canvas, 0, 0, &background_main_layer, &img_dsc);
+                break;
+        default:
+            lv_canvas_draw_img(canvas, 0, 0, &background_alt_layer, &img_dsc);
+
+    }
 
     // Capitalize the layer name if given or use the layer number otherwise.
     char* text = NULL;
