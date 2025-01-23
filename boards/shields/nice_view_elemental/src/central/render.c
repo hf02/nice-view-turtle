@@ -85,7 +85,9 @@ void render_main() {
     // Unfortunately, text transparency does not seem to work in LVGL 8.3. This
     // forces us to redraw the background on every render instead of having it
     // on a layer underneath.
-    draw_background(main_canvas, states.background_index);
+
+    // skip rendering background on cental
+    // draw_background(main_canvas, states.background_index);
 #endif
 
     // Capitalize the layer name if given or use the layer number otherwise.
