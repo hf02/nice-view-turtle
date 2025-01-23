@@ -107,47 +107,12 @@ void render_main() {
     // us another value ((68px - 34px) / 2 = 17px). 
     static const unsigned text_y_offset = 15;
 
-#if IS_ENABLED(CONFIG_NICE_VIEW_ELEMENTAL_OUTLINE)
-    lv_draw_label_dsc_t outline_dsc;
-    lv_draw_label_dsc_init(&outline_dsc);
-    outline_dsc.color = FOREGROUND_COLOR;
-    outline_dsc.font = &custom_font_outline;
-    outline_dsc.align = LV_TEXT_ALIGN_CENTER;
-
-    lv_canvas_draw_text(
-        main_canvas,
-        0,
-        // Magic number offset. We would think that the fonts would line up
-        // perfectly, because of how they were created, but no.
-        text_y_offset - 1,
-        MAIN_CANVAS_WIDTH,
-        &outline_dsc,
-        text
-    );
-#endif
-
-#if IS_ENABLED(CONFIG_NICE_VIEW_ELEMENTAL_SHADOW)
-    lv_draw_label_dsc_t shadow_dsc;
-    lv_draw_label_dsc_init(&shadow_dsc);
-    shadow_dsc.color = BACKGROUND_COLOR;
-    shadow_dsc.font = &custom_font_shadow;
-    shadow_dsc.align = LV_TEXT_ALIGN_CENTER;
-
-    lv_canvas_draw_text(
-        main_canvas,
-        0,
-        text_y_offset,
-        MAIN_CANVAS_WIDTH,
-        &shadow_dsc,
-        text
-    );
-#endif
 
     lv_draw_label_dsc_t layer_name_dsc;
     lv_draw_label_dsc_init(&layer_name_dsc);
     layer_name_dsc.color = FOREGROUND_COLOR;
     layer_name_dsc.font = &pixel_operator_36;
-    layer_name_dsc.align = LV_TEXT_ALIGN_CENTER;
+    layer_name_dsc.align = LV_TEXT_ALIGN_LEFT;
 
     lv_canvas_draw_text(
         main_canvas,
