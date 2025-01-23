@@ -5,10 +5,8 @@
  ******************************************************************************/
 
 #ifdef LV_LVGL_H_INCLUDE_SIMPLE
-#include "lvgl.h"
-#else
-#include "lvgl/lvgl.h"
-#endif
+
+#include <lvgl.h>
 
 #ifndef PIXEL_OPERATOR_36
 #define PIXEL_OPERATOR_36 1
