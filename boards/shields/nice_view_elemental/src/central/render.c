@@ -20,6 +20,7 @@
 #include "../../include/utils/draw_usb_logo.h"
 #include "../../include/utils/rotate_connectivity_canvas.h"
 #include "../../include/images/background_alt_layer.h"
+#include "../../include/images/background_temp_layer.h"
 #include "../../include/images/background_main_layer.h"
 
 void render_battery() {
@@ -100,9 +101,15 @@ void render_main() {
     switch (states.layer.index) {
         case 0:
             lv_canvas_draw_img(main_canvas, 0, 0, &background_main_layer, &img_dsc);
-                break;
-        default:
+            break;
+        case 7:
+        case 11:
+        // layers you use for a long time. ex: app specific, video, gaming
             lv_canvas_draw_img(main_canvas, 0, 0, &background_alt_layer, &img_dsc);
+            break;
+        default:
+        // layers that you don't stick in for long. ex: symbols, portals, board management
+            lv_canvas_draw_img(main_canvas, 0, 0, &background_temp_layer, &img_dsc);
 
     }
 
