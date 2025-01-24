@@ -19,8 +19,6 @@
 #include "../../include/utils/draw_bluetooth_logo.h"
 #include "../../include/utils/draw_usb_logo.h"
 #include "../../include/utils/rotate_connectivity_canvas.h"
-#include "../../include/images/background_alt_layer.h"
-#include "../../include/images/background_temp_layer.h"
 #include "../../include/images/background_main_layer.h"
 
 void render_battery()
@@ -102,36 +100,7 @@ void render_connectivity()
 void render_main()
 {
 
-#if IS_ENABLED(CONFIG_NICE_VIEW_ELEMENTAL_BACKGROUND)
-    // Unfortunately, text transparency does not seem to work in LVGL 8.3. This
-    // forces us to redraw the background on every render instead of having it
-    // on a layer underneath.
-
-    // skip rendering background on cental
-    // draw_background(main_canvas, states.background_index);
-#endif
-
     lv_canvas_fill_bg(main_canvas, BACKGROUND_COLOR, LV_OPA_COVER);
-
-    // switch (states.layer.index)
-    // {
-    // case 0:
-    //     lv_canvas_draw_img(main_canvas, 0, 0, &background_main_layer, &img_dsc);
-    //     break;
-    // case 7:
-    // case 11:
-    //     // layers you use for a long time. ex: app specific, video, gaming
-    //     lv_canvas_draw_img(main_canvas, 0, 0, &background_alt_layer, &img_dsc);
-    //     break;
-    // default:
-    //     // layers that you don't stick in for long. ex: symbols, portals, board management
-    //     lv_canvas_draw_img(main_canvas, 0, 0, &background_temp_layer, &img_dsc);
-    // }
-
-    // // Magic number. The height of the font from the baseline to the ascender
-    // // height is 34px, but halving the space remaining of the full height gives
-    // // us another value ((68px - 34px) / 2 = 17px).
-    // static const unsigned text_y_offset = 15;
 
     // screen width
     // |      line height
@@ -139,10 +108,9 @@ void render_main()
     // V      V      V
     // 68px - 39px + 6px = 29px
     static const unsigned text_y_offset = 35;
-    const unsigned text_y_shift = text_y_offset - 2;
 
-    printf("-----------------\nimma rendering!\n\n");
-    printf("states.layer_depth = %i\n", states.layer_depth);
+    // the amount to shift the text by when it's on a different layer
+    const unsigned text_y_shift = text_y_offset - 2;
 
     for (int i = 0; i < states.layer_depth; i++)
     {
@@ -150,19 +118,12 @@ void render_main()
 
         if (reverse_index >= 3)
         {
-            printf("shit's gonna be off screen, so just skip it\n");
             continue;
         }
 
-        printf("\nBEGIN LOOP!\n");
         int y_position = text_y_offset - (text_y_shift * reverse_index);
-        printf("y_position = %i\n", y_position);
 
-        printf("this layer\'s text should be: ");
-        printf(states.layers[i].name);
-        printf("\n");
-
-        // Capitalize the layer name if given or use the layer number otherwise.u
+        // Capitalize the layer name if given or use the layer number otherwise.
         char *text = NULL;
 
         if (states.layers[i].name == NULL)
@@ -180,10 +141,6 @@ void render_main()
             text[strlen(states.layers[i].name)] = '\0';
         }
 
-        printf("text: ");
-        printf(text);
-        printf("\n");
-
         lv_draw_label_dsc_t layer_name_dsc;
         lv_draw_label_dsc_init(&layer_name_dsc);
         layer_name_dsc.color = FOREGROUND_COLOR;
@@ -200,13 +157,13 @@ void render_main()
 
         free(text);
         text = NULL;
-
-        printf("end loop...!\n\n");
     }
+
+    // put a dithered shadow over the layer text so it looks all nice.
+    // TODO: rename background_main_layer to something else
 
     lv_draw_img_dsc_t img_dsc;
     lv_draw_img_dsc_init(&img_dsc);
-
     img_dsc.recolor = BACKGROUND_COLOR;
 
     lv_canvas_draw_img(main_canvas, 0, 0, &background_main_layer, &img_dsc);

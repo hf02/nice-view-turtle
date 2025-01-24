@@ -197,10 +197,9 @@ static bool is_null_layer_state(struct layer_state state)
     return state.is_null;
 }
 
+// sets all of the layers in states.layers to null
 static void initialize_layers_state()
 {
-    printf("initalizing states.layers!!");
-
     int array_size = sizeof(states.layers) / sizeof(struct layer_state);
     for (int i = 0; i < array_size; i++)
     {
@@ -210,10 +209,8 @@ static void initialize_layers_state()
 
 static void layer_state_update_callback(struct layer_state state)
 {
-    printf("layer_state_update_callback() BEGIN\n");
     states.layer = state;
 
-    printf("!was_layers_defined? %i\n", was_layers_defined);
     if (!was_layers_defined)
     {
         initialize_layers_state();
@@ -221,17 +218,13 @@ static void layer_state_update_callback(struct layer_state state)
     }
 
     int array_size = sizeof(states.layers) / sizeof(struct layer_state);
-    printf("array_size = %i\n", array_size);
     bool should_clear_layers = false;
     for (int i = 0; i < array_size; i++)
     {
-        printf("    index %i\n", i);
-        printf("        layer index: %i\n", states.layers[i].index);
 
         if (should_clear_layers)
         {
             states.layers[i] = null_layer_state();
-            printf("...clearing index %i...\n", i);
             continue;
         }
 
@@ -240,8 +233,6 @@ static void layer_state_update_callback(struct layer_state state)
             states.layers[i] = state;
             should_clear_layers = true;
             states.layer_depth = i + 1;
-            printf("index %i is null! so we set it to us :D\n", i);
-            printf("states.layer_depth = %i\n", i);
             continue;
         }
 
@@ -249,16 +240,11 @@ static void layer_state_update_callback(struct layer_state state)
         {
             should_clear_layers = true;
             states.layer_depth = i + 1;
-            printf("index %i is matches this layer! so we just start bombin\' :D\n", i);
-            printf("states.layer_depth = %i\n", i);
             continue;
         }
-
-        printf("index %i is like not important to us\n", i);
     }
 
     render_main();
-    printf("layer_state_update_callback() END\n");
 }
 
 // Retrieve the data we want from the event
