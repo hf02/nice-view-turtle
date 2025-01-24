@@ -1,4 +1,4 @@
-if SHIELD_NICE_VIEW_ELEMENTAL
+if SHIELD_NICE_VIEW_TURTLE
     config LV_Z_VDB_SIZE
         default 100
 
