@@ -207,7 +207,7 @@ static void layer_state_update_callback(struct layer_state state) {
         was_layers_defined = true;
     }
 
-    int array_size = sizeof(states.layers)/sizeof(layer_state);
+    int array_size = sizeof(states.layers)/sizeof(struct layer_state);
     bool should_clear_layers = false;
     for (int i = 0; i < array_size; i++) {
         if (should_clear_layers) {
