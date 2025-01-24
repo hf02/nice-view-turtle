@@ -148,18 +148,20 @@ void render_main() {
     layer_name_dsc.font = &pixel_operator_36;
     layer_name_dsc.align = LV_TEXT_ALIGN_LEFT;
 
-    for (int i = 0; i < states.layer_depth; i++) {
-        int y_position = text_y_offset + (-text_y_offset * i);
+    int array_size = sizeof(states.layers)/sizeof(struct layer_state);
+    for (int i = 0; i < array_size; i++) {
+        // int y_position = text_y_offset + (-text_y_offset * i);
 
         lv_canvas_draw_text(
             main_canvas,
             -3,
-            y_position,
+            text_y_offset,
             MAIN_CANVAS_WIDTH,
             &layer_name_dsc,
             text
         );
 
+        break;
     }
 
 
