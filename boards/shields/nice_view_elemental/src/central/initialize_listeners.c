@@ -181,7 +181,7 @@ bool was_layers_defined = false;
 
 static struct layer_state null_layer_state() {
     struct layer_state state = {
-        .index = -1;
+        .index = -1,
         .name = "(null)"
     };
 
