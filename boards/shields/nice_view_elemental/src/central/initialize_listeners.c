@@ -189,7 +189,7 @@ static struct layer_state null_layer_state() {
 }
 
 static bool is_null_layer_state(struct layer_state state) {
-    return state.index === -1;
+    return state.index == -1;
 }
 
 static void initialize_layers_state() {
