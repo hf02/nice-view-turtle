@@ -193,7 +193,7 @@ static bool is_null_layer_state(struct layer_state state) {
 }
 
 static void initialize_layers_state() {
-    int array_size = sizeof(states.layers)/sizeof(layer_state);
+    int array_size = sizeof(states.layers)/sizeof(struct layer_state);
     for (int i = 0; i < array_size; i++) {
         states.layers[i] = null_layer_state();
     }
