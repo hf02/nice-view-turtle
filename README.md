@@ -1,14 +1,12 @@
-# **modification of** nice!view Elemental
+# nice!view Turtle
 
-![image](https://github.com/user-attachments/assets/faa4130b-564e-4f3d-8f19-0bfeca774c4c)
+Based off the awesome [nice!view Elemental](https://github.com/kevinpastor/nice-view-elemental).
 
-## why
+![image](https://github.com/user-attachments/assets/028748e0-e136-455f-9890-bcc7084297d4)
 
-- i found the text a bit hard to read, especially with it being narrow. so i got rid of all its class and style (`:(`), and now it's just some plain text. the font is Pixel Operator
-    - there's also a lil indicator for when you divert into another layer. [the values are currently hardcoded in this switch statement](https://github.com/hf02/nice-view-elemental/blob/7e8f00b06e12f21e6d918a55c167d5fb03c05247/boards/shields/nice_view_elemental/src/central/render.c#L101).
-- the nice!view already has bezels, so we can use those as padding by getting rid of any padding on the screen panel itself. and now we got more screen space!
-- i dont like animations, so we got the google turtle instead
+## Features
 
-## todo
-- make the top bar look more consistent with everything else
-- put something on the left side on the central board. an image? wpm? i dunno!
+- Maximizes screen space. There are no margins on the screen, as the nice!view's borders gives some already.
+- The layer text is right there in a large font, and it also lets you see your current layer path (up to 10 layers currently)
+- The turtle from Google's Noto Emoji is there for the secondary display.
+
