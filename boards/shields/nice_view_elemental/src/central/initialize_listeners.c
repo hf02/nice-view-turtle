@@ -177,8 +177,57 @@ ZMK_SUBSCRIPTION(
     zmk_ble_active_profile_changed
 );
 
+bool was_layers_defined = false;
+
+static struct layer_state null_layer_state() {
+    struct layer_state state = {
+        .index = -1;
+        .name = "(null)"
+    };
+
+    return state
+}
+
+static bool is_null_layer_state(struct layer_state state) {
+    return state.index === -1;
+}
+
+static void initialize_layers_state() {
+    int array_size = sizeof(states.layers)/sizeof(layer_state);
+    for (int i = 0; i < array_size; i++) {
+        states.layers[i] = null_layer_state();
+    }
+}
+
 static void layer_state_update_callback(struct layer_state state) {
     states.layer = state;
+
+    if (!was_layers_defined) {
+        initialize_layers_state();
+        was_layers_defined = true;
+    }
+
+    int array_size = sizeof(states.layers)/sizeof(layer_state);
+    bool should_clear_layers = false;
+    for (int i = 0; i < array_size; i++) {
+        if (should_clear_layers) {
+            states.layers[i] = null_layer_state();
+            continue;
+        }
+        
+        if (is_null_layer_state(states.layers[i])) {
+            states.layers[i] = state;
+            should_clear_layers = true;
+            states.layer_depth = i;
+            continue;
+        }
+
+        if (states.layers[i].index == state.index) {
+            should_clear_layers = true;
+            states.layer_depth = i;
+            continue;
+        }
+    }
 
     render_main();
 }

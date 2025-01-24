@@ -115,6 +115,7 @@ void render_main() {
 
     // Capitalize the layer name if given or use the layer number otherwise.
     char* text = NULL;
+    
     if (states.layer.name == NULL) {
         text = malloc(10 * sizeof(char));
         sprintf(text, "LAYER %i", states.layer.index);
@@ -147,14 +148,20 @@ void render_main() {
     layer_name_dsc.font = &pixel_operator_36;
     layer_name_dsc.align = LV_TEXT_ALIGN_LEFT;
 
-    lv_canvas_draw_text(
-        main_canvas,
-        -3,
-        text_y_offset,
-        MAIN_CANVAS_WIDTH,
-        &layer_name_dsc,
-        text
-    );
+    for (int i = 0; i < states.layer_depth; i++) {
+        int y_position = text_y_offset + (-text_y_offset * i);
+
+        lv_canvas_draw_text(
+            main_canvas,
+            -3,
+            y_position,
+            MAIN_CANVAS_WIDTH,
+            &layer_name_dsc,
+            text
+        );
+
+    }
+
 
     free(text);
     text = NULL;

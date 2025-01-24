@@ -24,6 +24,8 @@ struct states {
     struct battery_state battery;
     struct connectivity_state connectivity;
     struct layer_state layer;
+    struct layer_state layers [10];
+    int layer_depth;
 };
 
 extern struct states states;
