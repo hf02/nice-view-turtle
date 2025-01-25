@@ -34,7 +34,7 @@ void render_connectivity() {
 void render_main() {
     lv_canvas_fill_bg(main_canvas, BACKGROUND_COLOR, LV_OPA_COVER);
     
-#if IS_ENABLED(CONFIG_NICE_VIEW_ELEMENTAL_BACKGROUND)
+#if IS_ENABLED(CONFIG_NICE_VIEW_TURTLE_BACKGROUND)
     draw_background(main_canvas, states.background_index);
 #endif
 }
