@@ -1,0 +1,8 @@
+file_format: "1"
+id: nice_view_turtle
+name: nice!view Turtle
+type: shield
+url: https://github.com/hf02/nice-view-turtle
+requires: [nice_view_header]
+features:
+    - display
