@@ -49,3 +49,4 @@ include:
 - Some nice_view_elemental -> nice_view_turtle. See [#2](https://github.com/hf02/nice-view-turtle/pull/2).
 - Change the top bar icons from Elemental's style
 - Notifications? For instance, if the keyboard disconnects, a banner will appear at the top so it's more obvious.
+- Animations? It would be cool if the layer indicator slid in new layers, but I'm not sure how realistic that is.
